@@ -1,0 +1,73 @@
+{
+  "repo": "radian-svc-session-hub",
+  "language": "Kotlin",
+  "category": "Backend services",
+  "goal": "Design a Kotlin verification harness for session systems, covering diagnostic reporting, negative fixtures, and failure-oriented tests.",
+  "review_model": {
+    "terms": [
+      "queue pressure",
+      "retry load",
+      "worker slack",
+      "session drift"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "queue pressure",
+      "signal": 80,
+      "slack": 27,
+      "drag": 26,
+      "confidence": 73,
+      "score": 182,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "retry load",
+      "signal": 48,
+      "slack": 29,
+      "drag": 14,
+      "confidence": 89,
+      "score": 172,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "worker slack",
+      "signal": 46,
+      "slack": 46,
+      "drag": 31,
+      "confidence": 68,
+      "score": 113,
+      "lane": "watch"
+    },
+    {
+      "name": "recovery",
+      "focus": "session drift",
+      "signal": 54,
+      "slack": 34,
+      "drag": 22,
+      "confidence": 63,
+      "score": 139,
+      "lane": "watch"
+    },
+    {
+      "name": "stale",
+      "focus": "queue pressure",
+      "signal": 52,
+      "slack": 49,
+      "drag": 32,
+      "confidence": 74,
+      "score": 131,
+      "lane": "watch"
+    }
+  ]
+}
