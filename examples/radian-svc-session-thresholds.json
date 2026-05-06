@@ -1,0 +1,17 @@
+{
+  "repo": "radian-svc-session-hub",
+  "thresholds": {
+    "signal": 3,
+    "slack": 2,
+    "confidence": 2,
+    "drag": 2,
+    "ship": 199,
+    "watch": 111
+  },
+  "terms": [
+    "queue pressure",
+    "retry load",
+    "worker slack",
+    "session drift"
+  ]
+}
